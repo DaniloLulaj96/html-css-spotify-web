@@ -1,0 +1,673 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    list-style: none;
+    text-decoration: none;
+    font-family: 'Roboto', sans-serif;
+}
+
+:root{
+    --central-menu-color: #141922;
+    --central-menu-top: #080B12;
+    --footer-color: #282828;
+    --active-color: #ADFF2F;
+    --text-color: #76777C;
+    --ligth-color: #ffffff;
+    --black: #000000;
+    --footer-objects-color: #D2D2D2;
+}
+
+/*  utilities */
+.d-flex{
+    display: flex;
+}
+
+img{
+    width: 100%;
+    display: block;
+}
+
+.btn{
+    padding: 0.5rem 1.8rem;
+    border: 1px solid;
+    color: var(--ligth-color);
+    border-radius: 2rem;
+    font-weight: bold;
+    transition: all 1s;
+}
+
+.tx-center{
+    text-align: center;
+}
+
+.col-2{
+    width: calc(100% / 12 *2);
+}
+
+.col-3{
+    width: calc(100% / 12 * 3);
+}
+
+.col-5{
+    width: calc(100% / 12 * 5);
+}
+
+.wrapper{
+    height: 100vh;
+    width: 100%;
+}
+
+#site_main{
+    height: calc(100% - 90px);
+    width: 100%;
+
+& .container{
+    width: 100%;
+    height: 100%;
+}
+}
+
+/* left_bar */
+.logo_sm{
+    display: none;
+}
+
+.left_bar{
+    width: 230px;
+    height: 100%;
+    background-color: var(--black);
+    overflow-y: auto;
+
+    &::-webkit-scrollbar{
+        width: 0px;
+    }
+
+    & h3{
+        color: var(--ligth-color);
+        padding: 1rem 0;
+        padding-left: 1rem;
+    }
+}
+
+.left_bar .menu_container{
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+}
+
+.left_bar .logo{
+    height: 90px;
+    padding-left: 1rem;
+    align-items: center;
+
+    & img{
+        vertical-align: middle;
+        width: 70%;
+    }
+}
+
+.element_list{
+    gap: 0.5rem;
+    align-items: center;
+}
+
+
+.left_bar .home{
+    border-left: 3px solid var(--active-color);
+    padding-left: calc(1rem - 3px);
+
+    & a{
+        color: var(--ligth-color);
+    }
+}
+
+.left_bar li{
+   padding-bottom: 0.5rem;
+   padding-left: 1rem;
+   color: var(--text-color);
+
+   & a{ 
+   vertical-align: middle;
+   font-weight: bold;
+   color: var(--text-color);
+   gap: 0.5rem;
+   }
+
+   & img{
+    width: 2rem;
+    vertical-align: middle;
+   } 
+}
+
+.playlist_list li{
+    padding-bottom: 1rem;
+
+    & :not(.action){
+        font-size: 0.8rem;
+    }
+}
+
+.action{
+    line-height: 2rem;
+}
+
+.square{
+    width: 2rem;
+    aspect-ratio: 1;
+    font-size: 1.5rem;
+    background-color: var(--text-color);
+    line-height: 2rem;
+    color: var(--black);
+    text-align: center;
+}
+
+.menu_bottom{
+    padding: 0 1rem;
+
+    & a{
+    color: var(--text-color);
+    font-weight: bold;
+    font-size: 0.8rem;
+    line-height: 1.3rem;
+    }
+    & .download{
+        width: 1.3rem;
+        vertical-align: middle;
+    }
+}
+
+.download_app{
+    gap: 0.5rem;
+}
+
+.menu_bottom .user{
+    padding-bottom: 0.5rem;
+    padding-top: 1rem;
+    border-top: 1px solid var(--text-color);
+    margin-top: 0.5rem;
+    gap: 0.5rem;
+    align-items: center;
+
+    & .user_name{
+        font-weight: bold;
+        color: var(--ligth-color);
+    }
+}
+
+.menu_bottom .user_icon{
+    background-color: var(--text-color);
+    border-radius: 50%;
+    width: 1.5rem;
+    aspect-ratio: 1;
+    justify-content: center;
+    align-items: flex-end;
+
+    & img{
+    border-radius: 50%;
+    height: 100%;
+    }
+}
+
+/* central_menu */
+.central_menu{
+    width: calc(100% - 230px);
+
+    & .recent_played .row,.popular_artist .row, .John_Doe .row{
+        overflow-x: auto;
+        background-color: var(--central-menu-color);
+
+        &::-webkit-scrollbar{
+            width: 0px;
+        }
+    }
+}
+
+.central_menu_top{
+    height: 90px;
+    width: 100%;
+    background-color: var(--central-menu-top);
+    justify-content: flex-end;
+    align-items: center;
+    padding-right: 1rem;
+}
+
+.central_menu_body{
+    width: 100%;
+    height: calc(100% - 90px);
+    background-color: var(--central-menu-color);
+    overflow-y: auto;
+
+    &::-webkit-scrollbar{
+        width: 12px;
+    }
+
+    &::-webkit-scrollbar-track{
+        background-color: var(--ligth-color);
+    }
+
+    &::-webkit-scrollbar-thumb{
+        background-color: var(--text-color);
+        border: 3px solid var(--ligth-color);
+        border-radius: 8px;
+        margin-inline: 0.5rem;
+    }
+}
+
+.links_menu{
+    gap: 1.5rem;
+    justify-content: center;
+    padding: 1rem;
+    flex-wrap: wrap;
+    font-size: 0.8rem;
+   
+    & a{
+        font-weight: bold;
+        color: var(--text-color);
+    }
+
+    & .active{
+        width: 30%;
+        height: 3px;
+        background-color: var(--active-color);
+        margin: auto;
+        margin-top: 0.3rem;
+    }
+}
+
+.central_menu .container{
+    padding: 0.5rem 1rem;
+
+    & h2{
+        color: var(--ligth-color);
+        margin-bottom: 1.5rem;
+    }
+
+    & .row{
+        margin: 0 -0.25rem;
+    }
+
+    & h4{
+        color: var(--text-color);
+        font-size: 0.8rem;
+    }
+}
+
+.card{
+    max-width: 250px;
+    padding: 0.25rem;
+    & h3{
+        color: var(--ligth-color);
+        margin: 1rem 0 0.5rem;
+        font-size: 1rem;
+    }
+
+    & .album{
+        position: relative;
+    }
+
+    & .background{
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        visibility: hidden;
+        background-color: #00000074;
+    }
+
+    & .play{
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        translate: -50% -50%;
+        font-size: 5rem;
+        color: var(--ligth-color);
+        visibility: hidden;
+    }
+}
+
+.central_menu .John_Doe, .central_menu .popular_artist{
+    & h2{
+        margin-bottom: 0.5rem;
+    }
+
+    & h4{
+        margin-bottom: 1.5rem;
+    }
+}
+
+.popular_artist img, ._artist .background{
+    border-radius: 50%;
+}
+
+/* footer */
+#site_footer{
+    width: 100%;
+    height: 90px;
+    position: relative;
+    z-index: 999;
+    background-color: var(--footer-color);
+    padding: 1rem 0.5rem;
+
+    & .container{
+        height: 100%;
+        width: 100%;
+    }
+
+    & .row{
+        height: 100%;
+        width: 100%;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    & .left_menu_footer, .center_menu_footer{
+        align-items: center;
+        gap: 1rem;
+    }
+}
+
+.left_menu_footer .album{
+    align-items: center;
+    gap: 0.5rem;
+
+    & img{
+        width: 50px;
+        aspect-ratio: 1;
+    }
+
+    & h3{
+        color: var(--ligth-color);
+        font-size: 0.8rem;
+    }
+
+    & h4{
+        color: var(--text-color);
+        font-size: 0.6rem;
+    }
+}
+
+.left_menu_footer .feature{
+    gap: 1rem;
+    color: var(--text-color);
+}
+
+.center_menu_footer{
+    padding: 0 1rem;
+}
+
+.center_menu_footer .feature{
+    color: var(--ligth-color);
+    justify-content: center;
+    align-items: center;
+    gap: 5rem;
+    height: 2rem;
+    margin: auto;
+    position: relative;
+    
+    & i{
+        cursor: pointer;
+    }
+
+    & .key_left, .key_right{
+        gap: 1.5rem;
+    }
+
+    & .play{
+        font-size: 1.8rem;
+        position: absolute;
+        left: 50%;
+        translate: -50%;
+    }
+}
+
+.time_line{
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--footer-objects-color);
+    font-weight: bold;
+    font-size: 0.8rem;
+    margin-top: 0.5rem;
+    width: 100%;
+
+    & .time_line_component{
+        width: 80%;
+        height: 5px;
+        background-color: var(--text-color);
+        margin: auto;
+        border-radius: 3px;
+        position: relative;
+    }
+}
+
+.time_line_xxs{
+    display: none;
+}
+
+.track{
+    width: 30%;
+    height: 5px;
+    border-radius: 3px;
+    background-color: var(--footer-objects-color);
+    position: relative;
+    }
+
+.pointer{
+    width: 0.8rem;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    right: 0;
+    translate: 50% -50%;
+    background-color: var(--ligth-color);
+    visibility: hidden;
+}
+
+.right_menu_footer{
+    color: var(--ligth-color);
+    font-size: 0.8rem;
+    gap: 0.5rem;
+    align-items: center;
+    justify-content: end;
+
+    & .volume_component{
+        width: 50%;
+        max-width: 150px;
+        min-width: 75px;
+        height: 5px;
+        background-color: var(--text-color);
+        border-radius: 3px;
+        position: relative;
+    }
+
+    & .track{
+        width: 40%;
+    }
+}
+/* #endregion */
+
+/* #region media query */
+@media screen and (max-width: 1180px) {
+    .col-md-3{
+        min-width: calc(100% / 12 * 3);
+    }
+    
+}
+
+@media screen and (max-width: 768px) {
+    .col-sm-6{
+        min-width: 50%;
+    }
+
+    .left_menu_footer .feature{
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+}
+
+@media screen and (max-width: 576px) {  
+    .central_menu{
+        width: calc(100% - 50px);
+    }
+
+    .left_bar .logo{
+        height: 60px;
+    }
+
+    .logo_sm{
+        display: block;
+        padding: 0.5rem 0;
+    }
+
+    .logo_lg{
+        display: none;
+    }
+
+    .left_bar li, .menu_bottom, .left_bar .logo, .left_bar .home{
+    padding-left: 0;
+    padding-right: 0;
+   }
+
+   .left_bar .home, .menu_bottom .user{
+    border: 0;
+   }
+
+    .hide{
+        display: none;
+    }
+
+    .left_bar{
+        width: 50px;
+    }
+
+    .user, .download_app, .element_list, .logo, .menu_container{
+        justify-content: center;
+    }
+}
+
+@media screen and (max-width:500px) {
+    .hide_xs{
+        display: none;
+    }
+
+    .col-xs-2{
+        width: calc(100% / 12 * 2);
+    }
+
+    .left_menu_footer .album h3{
+        font-size: 0.6rem;
+    }
+
+    .center_menu_footer{
+        padding: 0.5rem;
+    }
+
+    .John_Doe h2, .recently_played h2, .popular_artist h2{
+        font-size: 1.25rem;
+    }
+}
+
+@media screen and (max-width:400px){
+    .col-xxs-11{
+        min-width: calc(100% / 12 * 11);
+    }
+
+    .hide_xxs{
+        display: none;
+    }
+
+    .central_menu_top .btn{
+        font-size: 0.8rem;
+
+        &:hover{
+            font-size: 1rem;
+        }
+    }
+
+    .visible_xxs{
+        display: flex;
+    }
+
+    #site_footer .row{
+        height: 70%;
+    }
+
+    .central_menu .links_menu{
+        bottom: 9rem;
+    }
+}
+
+@media screen and (max-height: 221px) {
+    .btn{
+        visibility: hidden;
+    }
+}
+/* #endregion */ 
+
+/* #region hover */
+.left_bar li, .links_menu, .menu_bottom{
+
+    & a:hover{
+        color: var(--ligth-color);
+    }
+}
+
+.action:hover .square{
+    background-color: var(--ligth-color);
+}
+
+.btn:hover{
+    font-size: large;
+}
+
+#site_footer i:hover{
+    color: var(--ligth-color);
+    cursor: pointer;
+}
+
+#site_footer .play:hover{
+    font-size: 2.2rem;
+}
+
+.card>.album:hover{
+    cursor: pointer;
+
+    & .play, .background{
+    visibility: visible;
+    }
+    
+}
+
+.left_menu_footer h4:hover{
+    text-decoration: underline;
+    color: var(--ligth-color);
+    cursor: pointer;
+}
+
+.track:hover{
+    background-color: var(--active-color);
+    cursor: pointer;
+
+    & .pointer{
+        visibility: visible;
+    }
+}
+/* #endregion */
+
+/* #region animation */
+.links_menu {
+    animation-name: landing;
+    animation-duration: 3s;
+    position: relative;
+    bottom: 6rem;
+    animation-fill-mode: forwards;
+}
+
+@keyframes landing {
+    to{ 
+            bottom: 0;
+    }
+}
+/* #endregion */
